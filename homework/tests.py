@@ -44,7 +44,28 @@ def test_file_data():
     """
 
     def count_word_in_file(filename, word):
-        pass
+        myFileList = []
+        z = 0
+        count = 0
+        with open("filename") as myFile:
+            'dividing the text into lines'
+            for line in myFile:
+                myFileList.append(line)
+            
+            'finding the word'
+            for lineList in myFileList:
+                for letterLineList in lineList:
+                    if letterLineList == word[z]:
+                        z += 1
+                    else:
+                        z = 0
+                    if z === len(word):
+                        z = 0
+                        count += 1
+        myFile.close()
+
+        return count
+ 
 
     assert count_word_in_file("homework/pony.txt", "радуга") == 0
     assert count_word_in_file("homework/pony.txt", "и") == 3
