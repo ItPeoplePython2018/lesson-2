@@ -41,7 +41,7 @@ def test_file_data():
             count = f.read() \
                 .lower() \
                 .split() \
-                .count(word)
+                .count(word.lower())
         return count
 
     assert count_word_in_file("homework/pony.txt", "радуга") == 0
