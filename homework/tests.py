@@ -59,7 +59,7 @@ def test_file_data():
                         z += 1
                     else:
                         z = 0
-                    if z === len(word):
+                    if z == len(word):
                         z = 0
                         count += 1
         myFile.close()
