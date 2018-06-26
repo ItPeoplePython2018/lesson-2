@@ -1,6 +1,7 @@
 import datetime
 
 
+
 def test_leap_year():
     """
     Задание: необходимо реализовать функцию is_leap_year, принимающую на вход объект типа datetime.date
@@ -12,7 +13,16 @@ def test_leap_year():
     """
 
     def is_leap_year(date):
-        pass
+        if date.year % 100 == 0:
+            if date.year % 400 == 0:
+                return True
+            else:
+                return False
+        else:
+            if date.year % 4 == 0:
+                return True
+            else:
+                return False
 
     assert is_leap_year(datetime.date(year=2000, month=5, day=13))
     assert is_leap_year(datetime.date(year=2016, month=11, day=1))
@@ -20,6 +30,7 @@ def test_leap_year():
     assert not is_leap_year(datetime.date(year=1900, month=1, day=1))
     assert not is_leap_year(datetime.date(year=2003, month=3, day=7))
     assert not is_leap_year(datetime.date(year=2001, month=10, day=15))
+
 
 
 def test_file_data():
