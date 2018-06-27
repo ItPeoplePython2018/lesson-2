@@ -83,3 +83,4 @@ def test_file_data():
     assert count_word_in_file("homework/pony.txt", "радуга") == 0
     assert count_word_in_file("homework/pony.txt", "и") == 3
     assert count_word_in_file("homework/pony.txt", "пони") == 5
+    
