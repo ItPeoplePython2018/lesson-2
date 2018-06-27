@@ -47,7 +47,7 @@ def test_file_data():
         myFileWords = []
         fileWord = ''
         count = 0
-        with open("filename", encoding="utf-8") as myFile:
+        with open(filename, encoding="utf-8") as myFile:
             
             "dividing the text into lines and replacing \n to ' '"
             for line in myFile:
