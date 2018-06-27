@@ -1,7 +1,5 @@
 import datetime
 
-
-
 def test_leap_year():
     """
     Задание: необходимо реализовать функцию is_leap_year, принимающую на вход объект типа datetime.date
@@ -33,6 +31,7 @@ def test_leap_year():
 
 
 
+
 def test_file_data():
     """
     Задание: необходимо реализовать функцию, которая принимает filename - имя текстового файла и переменную word,
@@ -44,24 +43,38 @@ def test_file_data():
     """
 
     def count_word_in_file(filename, word):
-        myFileList = []
-        z = 0
+        myFileLists = []
+        myFileWords = []
+        fileWord = ''
         count = 0
-        with open("filename") as myFile:
-            'dividing the text into lines'
-            for line in myFile:
-                myFileList.append(line)
+
+        with open("filename", encoding="utf-8") as myFile:
             
-            'finding the word'
-            for lineList in myFileList:
-                for letterLineList in lineList:
-                    if letterLineList == word[z]:
-                        z += 1
+            "dividing the text into lines and replacing \n to ' '"
+            for line in myFile:
+
+                #line = line.lower().replace('\n', ' ')
+                #line = line.replace('\n', ' ')
+
+                myFileLists.append(line.lower().replace('\n', ' '))
+
+                
+            'dividing lines into words'
+            for fileList in myFileLists:
+                for fileListLetter in fileList:
+                    if fileListLetter != ' ':
+                        fileWord += fileListLetter
                     else:
-                        z = 0
-                    if z == len(word):
-                        z = 0
+                        myFileWords.append(fileWord)
+                        fileWord = ''
+
+
+            'finding the word'
+            for words in myFileWords:
+                if words == word:
                         count += 1
+
+                        
         myFile.close()
 
         return count
