@@ -1,4 +1,5 @@
 import datetime
+import re
 
 
 def test_leap_year():
@@ -12,7 +13,11 @@ def test_leap_year():
     """
 
     def is_leap_year(date):
-        pass
+        a = date.year
+        if (((a % 400) == 0) or (((a % 4) == 0) and ((a % 100) != 0))):
+            return True
+        else:
+            return False
 
     assert is_leap_year(datetime.date(year=2000, month=5, day=13))
     assert is_leap_year(datetime.date(year=2016, month=11, day=1))
@@ -33,7 +38,12 @@ def test_file_data():
     """
 
     def count_word_in_file(filename, word):
-        pass
+        num = 0
+        with open(filename) as u:
+            for line in u:
+                text_words = list(re.findall(r'\w+', line.casefold()))    #ищем слова
+                num += text_words.count(word.casefold())
+        return num
 
     assert count_word_in_file("homework/pony.txt", "радуга") == 0
     assert count_word_in_file("homework/pony.txt", "и") == 3
