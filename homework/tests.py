@@ -12,8 +12,11 @@ def test_leap_year():
     """
 
     def is_leap_year(date):
-        pass
-
+        
+    if date.year % 4 != 0 or (date.year % 100 == 0 and date.year % 400 != 0):
+        return False
+    else:
+        return True
     assert is_leap_year(datetime.date(year=2000, month=5, day=13))
     assert is_leap_year(datetime.date(year=2016, month=11, day=1))
     assert is_leap_year(datetime.date(year=1600, month=8, day=9))
