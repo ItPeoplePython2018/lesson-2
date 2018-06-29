@@ -53,4 +53,4 @@ def test_text_stat_hard():
 
     assert text_stat("homework/textstat1.txt") == (6, 69, 445)
     assert text_stat("homework/textstat2.txt") == (6, 73, 459)
-    assert text_stat("homework/textstat3.txt") == (10, 73, 447)
+    assert text_stat("homework/textstat3.txt") == (10, 73, 467)
