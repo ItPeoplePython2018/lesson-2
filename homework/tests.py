@@ -12,7 +12,14 @@ def test_leap_year():
     """
 
     def is_leap_year(date):
-        pass
+        if date.year % 100 == 0:
+            if date.year % 400 == 0:
+                return True
+            else: return False
+        else:
+            if date.year % 4 == 0:
+                return True
+            else: return False
 
     assert is_leap_year(datetime.date(year=2000, month=5, day=13))
     assert is_leap_year(datetime.date(year=2016, month=11, day=1))
@@ -33,8 +40,10 @@ def test_file_data():
     """
 
     def count_word_in_file(filename, word):
-        pass
-
+        f = open('filename', 'r')
+            i = f.split
+            i.count(word)
+        return count
     assert count_word_in_file("homework/pony.txt", "радуга") == 0
     assert count_word_in_file("homework/pony.txt", "и") == 3
     assert count_word_in_file("homework/pony.txt", "пони") == 5
