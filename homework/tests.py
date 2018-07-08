@@ -1,4 +1,5 @@
 import datetime
+import re
 
 
 def test_leap_year():
@@ -48,3 +49,24 @@ def test_file_data():
     assert count_word_in_file("homework/pony.txt", "и") == 3
     assert count_word_in_file("homework/pony.txt", "пони") == 5
 
+def test_text_stat_hard():
+    """
+    Задание: необходимо реализовать функцию, которая принимает filename - имя текстового файла
+    и возвращает кортедж: (количество строк, количество слов, количество символов) в тексте.
+    Текст может содержать любые символы латинского алфавита, цифры, пробелы и знаки пунктуации.
+    Словом считается число-буквенная последовательность (например elephant, el3phant или 449).
+    """
+
+    def text_stat(filename):
+        with open(filename) as f:
+            text = f.read()
+            rows = sum(1 for line in text.split('\n'))
+            words = len(re.findall(r'\w+', text))
+            symbols = sum(1 for line in text)
+            stat = (rows, words, symbols)
+            return stat
+
+    # в первых двух файлах по 7 строк, а в третьем файле есть пустая строка, которую мы тоже должны посчитать.
+    assert text_stat("homework/textstat1.txt") == (7, 69, 445)
+    assert text_stat("homework/textstat2.txt") == (7, 73, 459)
+    assert text_stat("homework/textstat3.txt") == (11, 73, 467)
